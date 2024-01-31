@@ -12,16 +12,22 @@
     <title>Vanilla App Template</title>
  
     <script type="module" crossorigin src="/vanilla-app-template/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/vanilla-app-template/assets/index-dc86acb3.css">
+    <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/vendor-c9def49e.js">
+    <link rel="stylesheet" href="/vanilla-app-template/assets/vendor-8c8fa3ea.css">
+    <link rel="stylesheet" href="/vanilla-app-template/assets/index-41c6a180.css">
   </head>
   <body>
 
+    <div>
       <form class="search-form" autocomplete="off">
         <label>
-            <input class="search-input" type="search" name="search" autocomplete="off" placeholder="Search images..." />
+            <input class="search-input" type="search" name="searchQuery" autocomplete="off" placeholder="Search images..." />
         </label>
-        <button class="search-btn" type="submit">Submit</button>
+        <button class="search-btn" type="submit">Search</button>
     </form>
+
+    <ul class="gallery"></ul>
+    </div>
 
 
     
