@@ -6,17 +6,7 @@ const formElem = document.querySelector('.search-form');
 
 
 
-const options = {
-    method: "GET",
-    key: "user_id:42127236",
-    q: formElem.currentTarget,
-    image_type: "photo",
-    orientation: "horizontal",
-    safesearch: "true"
-
-};
-
-fetch('<https://pixabay.com/api/>', options).then(response => {
+fetch('https://pixabay.com/api/?key=42127236-8bfdbbfbeed8a2dadaca720e8&q=cat&image_type=photo&orientation=horizontal&safesearch=true', ).then(response => {
     if (!response.ok) {
         throw new Error(response.status);
     }
