@@ -43,7 +43,7 @@ function searchImages(userSearch) {
     .then(data => {
       if (data.hits.length === 0) {
         iziToast.error({
-          message: 'Sorry, there are no images matching <br>your search query. Please try again!</br>',
+          message: 'Sorry, there are no images matching your search query. Please try again!',
           position: 'topLeft',
           transitionIn: "fadeInLeft",
         });
@@ -61,27 +61,27 @@ function searchImages(userSearch) {
       }).join('');
     
       imagesContainer.insertAdjacentHTML('beforeend', generateGalleryMarkup);
-      const lightbox = new SimpleLightbox('.gallery a', {
-        captions: true,
-          captionType: 'attr',
-          captionsData: 'alt',
-          captionPosition: 'bottom',
-          fadeSpeed: 150,
-          captionSelector: "img",
-          captionDelay: 250,
-      });
-    
-      lightbox.on('show.simplelightbox').refresh();
-      hideLoader();
-    
 
-  })
-  .catch((error) => console.log(error));
+      const lightbox = new SimpleLightbox('.gallery a', options);
+      lightbox.on('show.simplelightbox');
+      lightbox.refresh();
+      formElem.reset();
+      
+    }).catch((error) => {
+      console.log(error);
+    }).finally(() => {
+      hideLoader();
+    });
 }
 
-
-
-
+const options = {
+  captions: true,
+  captionType: 'attr',
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionSelector: "img",
+  captionDelay: 250,
+};
 
 
 
